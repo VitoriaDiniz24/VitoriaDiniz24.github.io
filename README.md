@@ -1,1 +1,64 @@
-# VitoriaDiniz24.github.io
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <button id="temaBtn">Modo Escuro</button>
+
+    <img class="logo" src="../img/Logo.png" alt="Logo da Tasty!" width="150">
+
+    <nav>
+        <ul>
+            <li class="opcoes"><a href="../html/login.html">Login</a></li>
+            <li class="opcoes"><a href="../html/cardapio.html">Inicio</a></li>
+            <li class="opcoes"><a href="../html/sobre.html">Sobre</a></li>
+            <li class="opcoes"><a href="../html/contato.html">Contato</a></li>
+            <li class="opcoes"><a href="../html/carrinho.html">Carrinho</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <p>Seu site para pedir lanche de qualquer lugar e a qualquer hora!</p>
+        <h2> CARDÁPIO </h2>
+        <p> Escolha o que deseja pedir! </p>
+    </header>
+
+    <div class="menu">
+
+        <div class="item">
+            <img src="../img/pizza.png" alt="Pizza">
+            <a href="../html/sabor.pizza.html">Pizza</a>
+        </div>
+
+        <div class="item">
+            <img src="../img/hamburguer.png" alt="Hambúrguer">
+            <a href="../html/sabor.hamburguer.html">Hambúrguer</a>
+        </div>
+
+        <div class="item">
+            <img src="../img/bebidas.png" alt="Bebidas">
+            <a href="../html/sabor.bebidas.html">Bebidas</a>
+        </div>
+
+        <div class="item">
+            <img src="../img/sobremesas.png" alt="Sobremesas">
+            <a href="../html/sabor.sobremesas.html">Sobremesas</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Tasty! - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="../script/script.js"></script>
+
+</body>
+
+</html>
