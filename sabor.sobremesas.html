@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sobremesas - Tasty!</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <button id="temaBtn">Modo Escuro</button>
+
+    <img class="logo" src="../img/Logo.png" alt="Logo da Tasty!" width="150">
+
+    <nav>
+        <ul>
+            <li class="opcoes"><a href="../html/login.html">Login</a></li>
+            <li class="opcoes"><a href="../html/cardapio.html">Inicio</a></li>
+            <li class="opcoes"><a href="../html/sobre.html">Sobre</a></li>
+            <li class="opcoes"><a href="../html/contato.html">Contato</a></li>
+            <li class="opcoes"><a href="../html/carrinho.html">Carrinho</a></li>
+        </ul>
+    </nav>
+
+        <h1>Escolha sua sobremesa</h1>
+        <ul class="sabores">
+                <li class="item-sabor" data-nome="Torta de limão" data-preco="13.90" data-ingredientes="Massa de biscoito com manteiga, creme de limão, merengue e raspas de limão">Torta de limão</li>
+            
+                <li class="item-sabor" data-nome="Petit Gateu" data-preco="17.90" data-ingredientes="Bolo de chocolate com chocolate derretido e sorvete de creme">Petit Gateau</li>
+            
+                <li class="item-sabor" data-nome="Bolo de chocolate" data-preco="12.90" data-ingredientes="Bolo de chocolate com cobertura de ganache de chocolate aonleite">Bolo de chocolate</li>
+            
+                <li class="item-sabor" data-nome="Mousse de maracujá" data-preco="10.90" data-ingredientes="Mousse de maracujá clássico">Mousse de maracuja</li>
+        </ul>
+    
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="titulo-sabor"></h2>
+            <p id="ingredientes"></p>
+            <p><strong>Preço:</strong> R$ <span id="preco-sabor"></span></p>
+            <button id="btnCarrinhoModal">Adicionar ao Carrinho</button>
+     
+        </div>
+
+    <footer>
+        <p>&copy; 2025 Tasty! - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="../script/carrinho.js"></script>
+
+    <script>
+        // Abrir modal ao clicar no sabor
+        document.querySelectorAll(".item-sabor").forEach(item => {
+            item.addEventListener("click", () => {
+                const nome = item.dataset.nome;
+                const preco = item.dataset.preco;
+                const ingredientes = item.dataset.ingredientes;
+
+                document.getElementById("titulo-sabor").textContent = nome;
+                document.getElementById("ingredientes").textContent = ingredientes;
+                document.getElementById("preco-sabor").textContent = preco;
+
+                document.getElementById("modal").classList.remove("hidden");
+
+                document.getElementById("btnCarrinhoModal").onclick = () => {
+                    adicionarAoCarrinho(nome, parseFloat(preco));
+                    fecharModal();
+                };
+            });
+        });
+
+        function fecharModal() {
+            document.getElementById("modal").classList.add("hidden");
+        }
+    </script>
+    <script src="../script/script.js"></script>
+
+</body>
+
+</html>
