@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sabores de Pizza - Tasty!</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <button id="temaBtn">Modo Escuro</button>
+
+    <img class="logo" src="../img/Logo.png" alt="Logo da Tasty!" width="150">
+
+    <nav>
+        <ul>
+            <li class="opcoes"><a href="../html/login.html">Login</a></li>
+            <li class="opcoes"><a href="../html/cardapio.html">Inicio</a></li>
+            <li class="opcoes"><a href="../html/sobre.html">Sobre</a></li>
+            <li class="opcoes"><a href="../html/contato.html">Contato</a></li>
+            <li class="opcoes"><a href="../html/carrinho.html">Carrinho</a></li>
+        </ul>
+    </nav>
+
+    <!-- LISTA DE SABORES -->
+    <h1>Escolha o sabor da sua pizza</h1>
+    
+    <ul class="sabores">
+        <li class="item-sabor" data-nome="Marguerita" data-preco="39.90"
+            data-ingredientes="Molho de tomate, mussarela, manjericão">
+            Marguerita - R$ 39,90
+        </li>
+
+        <li class="item-sabor" data-nome="Calabresa" data-preco="42.90"
+            data-ingredientes="Calabresa fatiada, cebola, queijo, orégano">
+            Calabresa - R$ 42,90
+        </li>
+
+        <li class="item-sabor" data-nome="Frango com Catupiry" data-preco="45.00"
+            data-ingredientes="Frango desfiado, catupiry, queijo">
+            Frango com Catupiry - R$ 45,00
+        </li>
+
+        <li class="item-sabor" data-nome="Portuguesa" data-preco="47.90"
+            data-ingredientes="Presunto, queijo, ovos, cebola, azeitonas">
+            Portuguesa - R$ 47,90
+        </li>
+    </ul>
+
+
+    <!-- MODAL -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="titulo-sabor"></h2>
+            <p id="ingredientes"></p>
+            <p><strong>Preço:</strong> R$ <span id="preco-sabor"></span></p>
+            <button id="btnCarrinhoModal">Adicionar ao Carrinho</button>
+     
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Tasty! - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="../script/carrinho.js"></script>
+    <script>
+        // Abrir modal ao clicar no sabor
+        document.querySelectorAll(".item-sabor").forEach(item => {
+            item.addEventListener("click", () => {
+                const nome = item.dataset.nome;
+                const preco = item.dataset.preco;
+                const ingredientes = item.dataset.ingredientes;
+
+                document.getElementById("titulo-sabor").textContent = nome;
+                document.getElementById("ingredientes").textContent = ingredientes;
+                document.getElementById("preco-sabor").textContent = preco;
+
+                document.getElementById("modal").classList.remove("hidden");
+
+                document.getElementById("btnCarrinhoModal").onclick = () => {
+                    adicionarAoCarrinho(nome, parseFloat(preco));
+                    fecharModal();
+                };
+            });
+        });
+
+        function fecharModal() {
+            document.getElementById("modal").classList.add("hidden");
+        }
+    </script>
+    <script src="../script/script.js"></script>
+
+</body>
+</html>
