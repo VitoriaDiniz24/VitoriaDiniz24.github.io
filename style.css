@@ -1,0 +1,476 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    margin: 20px auto;
+}
+
+nav {
+    background-color: #ff4d4d;
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: yellow;
+}
+
+header p {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+h2 {
+    margin: 20px 0;
+    color: #ff4d4d;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 80%;
+    margin: 30px auto;
+}
+
+.item {
+    background: auto;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(225, 218, 218, 0.626);
+    transition: transform 0.2s;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+.item a {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ff4d4d;
+    transition: 0.3s;
+}
+
+.item a:hover {
+    color: black;
+}
+
+.footer {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin: 0;      
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    background: auto;
+    border-radius: 30px;
+    box-shadow: 0 8px 16px rgba(186, 59, 5, 0.701);
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #ff4d4d;
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: auto;
+}
+
+.login-container button {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-container button:hover {
+    background: #e63e3e;
+}
+
+.sabores {
+    list-style-type: square;
+    margin: 20px auto;
+    padding: 0;
+    max-width: 300px;
+    text-align: left;
+}
+
+.sabores li {
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#temaBtn {
+  padding: 10px 20px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#temaBtn:hover {
+  background-color: #666;
+}
+
+/* Modo escuro */
+
+.modo-escuro {
+  background-color: #232b2b;
+  color: white;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* --- MODO ESCURO --- */
+.modo-escuro .login-container {
+    background-color: #2c2c2c;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+.modo-escuro .login-container h2 {
+    color: #ff6969;
+}
+
+.modo-escuro header {
+  background-color: #232b2b;
+  color: white;
+}
+
+.modo-escuro #secao-pagamento{
+  background-color: #232b2b;
+  color: white;
+}
+
+.modo-escuro main {
+  background-color: #232b2b;
+  color: white;
+}
+
+.modo-escuro .login-container input {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #444;
+}
+
+.modo-escuro .login-container button {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.modo-escuro .login-container button:hover {
+    background-color: #ff3535;
+}
+
+.modo-escuro .sabores {
+    list-style-type: square;
+    margin: 20px auto;
+    padding: 0;
+    max-width: 300px;
+    text-align: left;
+}
+
+.modo-escuro .sabores li {
+    padding: 10px;
+    background: #1e1e1e;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- Js carrinho de compras --- */
+
+* {
+    /* Define o modelo de caixa para incluir padding e borda no tamanho total do elemento */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Fundo suave */
+    background-color: #f4f4f9;
+    /* Fonte padrão e fallback */
+    font-family: Arial, sans-serif;
+    color: #333;
+    /* Centraliza o conteúdo principal horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- Estilos do Cabeçalho e Navegação (topo da página) --- */
+
+header {
+    background-color: #ffffff;
+    /* Sombra suave para destacar o cabeçalho */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: #ff6f61; /* Uma cor de destaque para o título */
+    font-size: 2em;
+}
+
+/* Estilos de Navegação (se você mantiver a nav acima do head/body) */
+nav {
+    width: 100%;
+    background-color: #333; /* Fundo escuro para a navegação */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li.opcoes {
+    margin: 0 15px;
+}
+
+nav ul li.opcoes a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li.opcoes a:hover {
+    background-color: #ff6f61; /* Cor de destaque ao passar o mouse */
+}
+
+.logo {
+    /* Ajuste para posicionamento, se necessário */
+    display: block;
+    margin: 10px auto;
+}
+
+/* --- Estilos do Container Principal do Carrinho --- */
+
+.carrinho-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Largura máxima para não ficar muito largo em telas grandes */
+    max-width: 800px;
+    width: 90%; /* Ocupa 90% da largura em telas menores */
+    margin-bottom: 20px;
+}
+
+/* --- Lista de Itens do Carrinho --- */
+
+#lista-carrinho {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    /* Borda para separar visualmente a lista */
+    border-top: 1px solid #eee;
+}
+
+/* Estilo para cada item na lista (presumindo que o JS crie <li>'s) */
+#lista-carrinho li {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    /* Layout flexível para organizar nome, preço, quantidade, etc. */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+#lista-carrinho li:last-child {
+    border-bottom: none; /* Remove a borda do último item */
+}
+
+/* Exemplo de como estilizar partes do item, se houver spans/divs internos */
+.item-nome {
+    font-weight: bold;
+    flex-grow: 1; /* Permite que o nome ocupe mais espaço */
+}
+
+.item-preco {
+    color: #555;
+    margin-left: 15px;
+}
+
+/* --- Seção de Total --- */
+
+.total {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: right;
+    padding: 15px 0;
+    border-top: 2px solid #ff6f61; /* Destaque para o total */
+    margin-top: 10px;
+    color: #ff6f61;
+}
+
+/* --- Botões de Ação --- */
+
+#limpar-carrinho,
+#finalizar-pedido {
+    /* Estilo base dos botões */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#limpar-carrinho {
+    background-color: #ccc;
+    color: #333;
+    margin-right: 10px; /* Espaço entre os botões */
+}
+
+#limpar-carrinho:hover {
+    background-color: #bbb;
+}
+
+#finalizar-pedido {
+    background-color: #4CAF50; /* Cor verde para ação principal */
+    color: white;
+}
+
+#finalizar-pedido:hover {
+    background-color: #45a049;
+}
+
+/* --- Seção de Pagamento --- */
+
+#secao-pagamento {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    width: 90%;
+    margin-bottom: 40px;
+    border-left: 5px solid #ff6f61; /* Destaque lateral */
+}
+
+#secao-pagamento h3 {
+    margin-bottom: 15px;
+    color: #ff6f61;
+}
+
+#secao-pagamento label {
+    display: inline-block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 1.05em;
+    padding-left: 5px; /* Pequeno espaçamento do radio button */
+}
+
+#secao-pagamento input[type="radio"] {
+    margin-right: 5px;
+    /* Ajustes para o tamanho do radio button */
+    transform: scale(1.2);
+}
+
+/* --- Responsividade (Ajustes para telas pequenas) --- */
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .carrinho-container {
+        padding: 20px;
+        width: 95%; /* Ocupa mais espaço em telas pequenas */
+    }
+
+    #lista-carrinho li {
+        /* Permite quebra de linha ou empilhamento em telas pequenas */
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    .item-nome,
+    .item-preco {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+
+    .total {
+        font-size: 1.3em;
+    }
+
+    #limpar-carrinho,
+    #finalizar-pedido {
+        /* Botões em tela cheia (100% de largura) */
+        width: 100%;
+        margin-top: 10px;
+        margin-right: 0; /* Remove a margem lateral */
+    }
+
+    /* Separa os botões verticalmente em telas pequenas */
+    #limpar-carrinho {
+        margin-bottom: 10px;
+    }
+}
+
