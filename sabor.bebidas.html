@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bebidas - Tasty!</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <button id="temaBtn">Modo Escuro</button>
+
+    <img class="logo" src="../img/Logo.png" alt="Logo da Tasty!" width="150">
+
+    <nav>
+        <ul>
+            <li class="opcoes"><a href="../html/login.html">Login</a></li>
+            <li class="opcoes"><a href="../html/cardapio.html">Inicio</a></li>
+            <li class="opcoes"><a href="../html/sobre.html">Sobre</a></li>
+            <li class="opcoes"><a href="../html/contato.html">Contato</a></li>
+            <li class="opcoes"><a href="../html/carrinho.html">Carrinho</a></li>
+        </ul>
+    </nav>
+
+    <h1>Escolha sua bebidas</h1>
+    <ul class="sabores">
+        <li class="item-sabor" data-nome="Coca-cola" data-preco="8.00" data-ingredientes="600ml">Coca-cola</li>
+
+        <li class="item-sabor" data-nome="Fanta uva" data-preco="6.00" data-ingredientes="600ml">Fanta uva</li>
+
+        <li class="item-sabor" data-nome="Fanta laranja" data-preco="6.00" data-ingredientes="600ml">Fanta laranja</li>
+
+        <li class="item-sabor" data-nome="Guaraná Antártica" data-preco="10.00" data-ingredientes="1l">Guaraná Antártica
+        </li>
+
+        <li class="item-sabor" data-nome="Suco de laranja" data-preco="10.00" data-ingredientes="500ml">Suco de laranja
+        </li>
+
+        <li class="item-sabor" data-nome="Suco de acerola" data-preco="10.00" data-ingredientes="500ml">Suco de acerola
+        </li>
+
+        <li class="item-sabor" data-nome="Suco de maracujá" data-preco="10.00" data-ingredientes="500ml">Suco de
+            maracujá</li>
+
+        <li class="item-sabor" data-nome="Água com gás" data-preco="4.00" data-ingredientes="600ml">Água com gás</li>
+
+        <li class="item-sabor" data-nome="Água sem gás" data-preco="2.50" data-ingredientes="600ml">Água sem gás</li>
+
+        <li class="item-sabor" data-nome="Heineken" data-preco="10.00" data-ingredientes="Long neck 330ml">Heineken</li>
+    </ul>
+
+
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="titulo-sabor"></h2>
+            <p id="ingredientes"></p>
+            <p><strong>Preço:</strong> R$ <span id="preco-sabor"></span></p>
+            <button id="btnCarrinhoModal">Adicionar ao Carrinho</button>
+
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Tasty! - Todos os direitos reservados</p>
+        </footer>
+
+
+        <script src="../script/carrinho.js"></script>
+        <script>
+            // Abrir modal ao clicar no sabor
+            document.querySelectorAll(".item-sabor").forEach(item => {
+                item.addEventListener("click", () => {
+                    const nome = item.dataset.nome;
+                    const preco = item.dataset.preco;
+                    const ingredientes = item.dataset.ingredientes;
+
+                    document.getElementById("titulo-sabor").textContent = nome;
+                    document.getElementById("ingredientes").textContent = ingredientes;
+                    document.getElementById("preco-sabor").textContent = preco;
+
+                    document.getElementById("modal").classList.remove("hidden");
+
+                    document.getElementById("btnCarrinhoModal").onclick = () => {
+                        adicionarAoCarrinho(nome, parseFloat(preco));
+                        fecharModal();
+                    };
+                });
+            });
+
+            function fecharModal() {
+                document.getElementById("modal").classList.add("hidden");
+            }
+        </script>
+    <script src="../script/script.js"></script>
+
+</body>
+
+</html>
